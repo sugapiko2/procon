@@ -1,3 +1,9 @@
+/**
+* This file contains following snippets.
+* template_procon
+* mint
+* union_find
+*/
 {
 	"Create template for procon": {
 		"scope": "cpp",
@@ -23,5 +29,76 @@
 			"}"
 		],
 		"description": "Create template for procon"
+	},
+	"ModInt": {
+		"scope": "cpp",
+		"prefix": "mint",
+		"body": [
+			"const int mod = 1000000007; // const int mod = 998244353;",
+			"struct mint {",
+			"\tll x; // typedef long long ll;",
+			"\tmint(ll x=0):x((x%mod+mod)%mod){}",
+			"\tmint operator-() const { return mint(-x);}",
+			"\tmint& operator+=(const mint a) {",
+			"\t\tif ((x += a.x) >= mod) x -= mod;",
+			"\t\treturn * this;",
+			"\t}",
+			"\tmint& operator-=(const mint a) {",
+			"\t\tif ((x += mod-a.x) >= mod) x -= mod;",
+			"\t\treturn *this;",
+			"\t}",
+			"\tmint& operator*=(const mint a) { (x *= a.x) %= mod; return *this;}",
+			"\tmint operator+(const mint a) const { return mint(*this) += a;}",
+			"\tmint operator-(const mint a) const { return mint(*this) -= a;}",
+			"\tmint operator*(const mint a) const { return mint(*this) *= a;}",
+			"\tmint pow(ll t) const {",
+			"\t\tif (!t) return 1;",
+			"\t\tmint a = pow(t>>1);",
+			"\t\ta *= a;",
+			"\t\tif (t&1) a *= *this;",
+			"\t\treturn a;",
+			"\t}",
+			"\t// for prime mod",
+			"\tmint inv() const { return pow(mod-2);}",
+			"\tmint& operator/=(const mint a) { return *this *= a.inv();}",
+			"\tmint operator/(const mint a) const { return mint(*this) /= a;}",
+			"};",
+			"istream& operator>>(istream& is, const mint& a) { return is >> a.x;}",
+			"ostream& operator<<(ostream& os, const mint& a) { return os << a.x;}",
+		],
+		"description": "ModInt"
+	},
+	"UnionFind": {
+		"scope": "cpp",
+		"prefix": "union_find",
+		"body": [
+			"struct UnionFind {",
+			"\tvector<int> par; // par[i]:iの親の番号　(例) par[3] = 2 : 3の親が2",
+			"",
+			"\tUnionFind(int N) : par(N) { //最初は全てが根であるとして初期化",
+			"\t\tfor(int i = 0; i < N; i++) par[i] = i;",
+			"\t}",
+			"",
+			"\tint root(int x) { // データxが属する木の根を再帰で得る：root(x) = {xの木の根}",
+			"\t\tif (par[x] == x) return x;",
+			"\t\treturn par[x] = root(par[x]);",
+			"\t}",
+			"",
+			"\tvoid unite(int x, int y) { // xとyの木を併合",
+			"\t\tint rx = root(x); //xの根をrx",
+			"\t\tint ry = root(y); //yの根をry",
+			"\t\tif (rx == ry) return; //xとyの根が同じ(=同じ木にある)時はそのまま",
+			"\t\tpar[rx] = ry; //xとyの根が同じでない(=同じ木にない)時：xの根rxをyの根ryにつける",
+			"\t}",
+			"",
+			"\tbool same(int x, int y) { // 2つのデータx, yが属する木が同じならtrueを返す",
+			"\t\tint rx = root(x);",
+			"\t\tint ry = root(y);",
+			"\t\treturn rx == ry;",
+			"\t}",
+			"};",
+			",",
+		],
+		"description": "UnionFind"
 	}
 }
