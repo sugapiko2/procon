@@ -1,0 +1,13 @@
+{
+    "editor.suggestSelection": "first",
+    "code-runner.preserveFocus": false,
+    "code-runner.runInTerminal": true,
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.defaultLanguage": "cpp",
+    "code-runner.executorMap": {
+        "cpp": "cd $dir && g++ $fileName && oj test"
+    },
+    "code-runner.saveAllFilesBeforeRun": true,
+    "editor.renameOnType": true,
+    "editor.snippetSuggestions": "top",
+}
