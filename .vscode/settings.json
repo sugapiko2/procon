@@ -5,7 +5,7 @@
     "code-runner.clearPreviousOutput": true,
     "code-runner.defaultLanguage": "cpp",
     "code-runner.executorMap": {
-        "cpp": "cd $dir && g++ $fileName && oj test"
+        "cpp": "cd $dir && g++ $fileName -std=c++14 -I $workspaceRoot/ac-library && oj test"
     },
     "code-runner.saveAllFilesBeforeRun": true,
     "editor.renameOnType": true,
