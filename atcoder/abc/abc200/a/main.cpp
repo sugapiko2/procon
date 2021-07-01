@@ -15,4 +15,7 @@ int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
     // implement
+    ll n;
+    cin >> n;
+    cout << ((n-1)/100+1) << endl;
 }
