@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define _GLIBCXX_DEBUG
-#define rep_(i, m_, n_, m, n, ...) for (int64_t i = m; i < n; i++)
-#define rep(i, ...) rep_(i, __VA_ARGS__, __VA_ARGS__, 0, __VA_ARGS__)
+#define rep3(i, m, n) for (int64_t i = m; i < n; i++)
+#define rep(i, n) for (int64_t i = 0; i < n; i++)
 using ll = int64_t;
 using vi = vector<ll>;
 using vvi = vector<vi>;
